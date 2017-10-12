@@ -1,9 +1,18 @@
 import { Component } from '@angular/core';
 
 @Component({
-    templateUrl: './word.component.html',
+    // template: '<h3>QuyDao</h3>',//chỉ là 1 đoạn html
+    templateUrl: './word.component.html',// gọi 1 file html 
     selector: 'app-word', // html tag do mình tự tạo ra,có thẻ đóng mở như bình thường,tên băt đầu là app-name_selector
-    styleUrls: ['./word.component.css']
+    styleUrls: ['./word.component.css'],
+    /*styles: [`
+        p {
+            color:blue
+        },
+        h3 {
+            color:green
+        }
+    `]*/ //style nội tuyến 
 })
 
 export class WordComponent {
