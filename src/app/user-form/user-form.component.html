@@ -1,4 +1,6 @@
-<h1>Tìm hiểu về các kiểu binding (tiếp):Two-way data binding </h1>
+<!--<h1>Tìm hiểu về các kiểu binding (tiếp):Two-way data binding </h1>-->
 <!--<input placeholder="Enter name" (keyup) = showEvent($event)>-->
-<input placeholder="Enter name" [(ngModel)] = "name">
+<h2>Tìm hiểu về Template reference variable</h2>
+<input placeholder="Enter name" [(ngModel)] = "name" #txtUser>
 <h3>Your name is : {{name}}</h3>
+<code>{{txtUser.value | json}}</code>
