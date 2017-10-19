@@ -1,5 +1,15 @@
+<!--Tìm hiểu về các kiểu binding-->
 <h3 [hidden]="forgot">{{ en }}</h3>
-<p>{{ vn }}</p>
+<!--1:string interpolation : đây là ràng buộc từ Component lên DOM-->
+<p>{{ vn }}</p> 
+
+<!--2:property binding : đây là ràng buộc từ Component lên DOM-->
+<!--cách 1: sử dụng string interpolation để show url-->
+<!--<img src="https://angular.io/assets/images/logos/angular/shield-large.svg" alt=""> -->
+<!--cách 2: sử dụng property binding để show url => Nên dùng theo cách này-->
 <img [src]="imageUrl" alt="">
+
+<!--3: event binding : đây là ràng buộc từ Component lên DOM và DOM tương tác ngược lại Component-->
 <button (click)="toggleForgot()">Toggle forgot</button>
+<!--Test laod bootstrap-->
 <button type="button" class="btn btn-danger">Danger</button>
