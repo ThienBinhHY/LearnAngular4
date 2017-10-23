@@ -1,0 +1,8 @@
+<h1>ngFor kết hợp Input và kết hợp sử dụng lại các component</h1>
+<!--<div *ngFor="let person of arrPeople">
+  <app-person [name]="person.name" [age]="person.age" (removePerson)="removePersonByName($event)"></app-person>
+</div>-->
+<!--k muon dung div-->
+<ng-container *ngFor="let person of arrPeople">
+  <app-person [name]="person.name" [age]="person.age" (removePerson)="removePersonByName($event)"></app-person>
+</ng-container>
