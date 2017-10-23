@@ -18,6 +18,14 @@ export class WordsComponent implements OnInit {
   newVn = "";
   isShowForm = false;
   filterStatus = 'XEM_TAT_CA';
+  // cách 2 :lọc mảng hiển thị
+  selectItems: any[] = [
+    {id: 1, value: "Xem tất cả"},
+    {id: 2, value: "Xem chưa nhớ"},
+    {id: 3, value: "Xem đã nhớ"}
+  ]; 
+  filter: any = this.selectItems[0].id;  
+  
   constructor() { }
 
   ngOnInit() {
@@ -50,12 +58,18 @@ export class WordsComponent implements OnInit {
     // xóa
     this.arrWords.splice(index,1);
   }
-
+  
   getShowStatus(memorized: boolean) {
-    const dkXemTatCa = this.filterStatus === 'XEM_TAT_CA';
+    /*const dkXemTatCa = this.filterStatus === 'XEM_TAT_CA';
     const dkXemDaNho = this.filterStatus === 'XEM_DA_NHO' && memorized;
     const dkXemChuaNho = this.filterStatus === 'XEM_CHUA_NHO' && !memorized;
-    return dkXemTatCa || dkXemDaNho || dkXemChuaNho;
+    return dkXemTatCa || dkXemDaNho || dkXemChuaNho;*/
+    console.log(this.filter);
+    // Cách 2
+    const showAll = this.filter == 1;
+    const showMemorized = this.filter == 2 && memorized;
+    const showUnMemorized = this.filter == 3 && !memorized;
+    return showAll || showMemorized || showUnMemorized;
   }
 
 }
