@@ -16,7 +16,7 @@ export class WordsComponent implements OnInit {
   ];
   newEn = "";
   newVn = "";
-
+  isShowForm = false;
   constructor() { }
 
   ngOnInit() {
@@ -24,6 +24,7 @@ export class WordsComponent implements OnInit {
 
   addWord(){
     // thêm vào đầu mảng
+    // this.isShowForm = true;
     this.arrWords.unshift({ 
       id: this.arrWords.length + 1 ,
       en: this.newEn,
@@ -36,6 +37,8 @@ export class WordsComponent implements OnInit {
     // sau khi thêm xong thì xoa trang input
     this.newEn = "";
     this.newVn = "";
+    // sau khi tem xong thi cung an form 
+    this.isShowForm = false;
   }
 
 }
