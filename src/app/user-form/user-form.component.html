@@ -1,6 +1,17 @@
 <!--<h1>Tìm hiểu về các kiểu binding (tiếp):Two-way data binding </h1>-->
 <!--<input placeholder="Enter name" (keyup) = showEvent($event)>-->
-<h2>Tìm hiểu về Template reference variable</h2>
+
+<!--<h2>Tìm hiểu về Template reference variable</h2>
 <input placeholder="Enter name" [(ngModel)] = "name" #txtUser>
 <h3>Your name is : {{name}}</h3>
-<code>{{txtUser.value | json}}</code>
+<code>{{txtUser.value | json}}</code>-->
+
+<!--Lập trình Angular 4 - Bài 14: Style binding và class binding-->
+<h2>Bài 14: Style binding và class binding</h2>
+<!--Style binding-->
+<input placeholder="Enter name" [(ngModel)] = "name" #txtUser>
+<h3 [style.color] =" name.length % 2 === 0 ? 'red' : 'blue' ">Your name is : {{name}}</h3>
+<h4 [style.color] =" isHighLight ? 'green' : 'pink' ">Your name is hightlight : {{name}}</h4>
+<!--class binding-->
+<div [class]="isHighLight ? 'circle' :'square'"></div>
+<div [class.circle]="!isHighLight" [class.square]="isHighLight"></div>   

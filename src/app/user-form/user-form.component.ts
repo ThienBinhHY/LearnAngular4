@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
   name = '';
+  isHighLight = false;
   constructor() { }
 
   ngOnInit() {
