@@ -15,3 +15,12 @@
 <!--class binding-->
 <div [class]="isHighLight ? 'circle' :'square'"></div>
 <div [class.circle]="!isHighLight" [class.square]="isHighLight"></div>   
+
+<h2>Bài 15: Cơ bản về directive,ngStyle</h2>
+<h4 [ngStyle] = "name.length % 2 === 0 ? evenStyle : oddStyle">Sử dụng ngStyle</h4>
+<h5>Sử dụng ngClass</h5>
+<!--2 cách này tương đương nhau -->
+<div [ngClass] = "{ circle: !isHighLight, square: isHighLight}"></div>
+<div [class.circle]="!isHighLight" [class.square]="isHighLight"></div>   
+<!--{ circle: !isHighLight, square: isHighLight} là đoạn javascript nên ta co the viêt trong .ts-->
+<div [ngClass] = "currentStyle"></div>
