@@ -26,6 +26,9 @@
     </h4>
     <p>{{ word.vn }}</p>
     <button (click)="delWord(word.id)">Xóa</button>
+    <button (click) = "word.memorized = !word.memorized">
+      {{word.memorized ? "chưa thuộc" : "đã thuộc"}}
+    </button>
   </div>
 
 </div>
