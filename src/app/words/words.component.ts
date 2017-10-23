@@ -17,6 +17,7 @@ export class WordsComponent implements OnInit {
   newEn = "";
   newVn = "";
   isShowForm = false;
+  filterStatus = 'XEM_TAT_CA';
   constructor() { }
 
   ngOnInit() {
@@ -48,6 +49,13 @@ export class WordsComponent implements OnInit {
     // const index = this.arrWords.indexOf(id);
     // xóa
     this.arrWords.splice(index,1);
+  }
+
+  getShowStatus(memorized: boolean) {
+    const dkXemTatCa = this.filterStatus === 'XEM_TAT_CA';
+    const dkXemDaNho = this.filterStatus === 'XEM_DA_NHO' && memorized;
+    const dkXemChuaNho = this.filterStatus === 'XEM_CHUA_NHO' && !memorized;
+    return dkXemTatCa || dkXemDaNho || dkXemChuaNho;
   }
 
 }
