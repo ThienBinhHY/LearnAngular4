@@ -41,4 +41,13 @@ export class WordsComponent implements OnInit {
     this.isShowForm = false;
   }
 
+  delWord(id){
+    //lấy ra index của id đó trong mảng
+    const index = this.arrWords.findIndex(word => word.id === id);
+    //or dung cach nay de lay id
+    // const index = this.arrWords.indexOf(id);
+    // xóa
+    this.arrWords.splice(index,1);
+  }
+
 }
