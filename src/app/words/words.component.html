@@ -16,7 +16,7 @@
 
 <!--Cách 2: lọc mảng hiển thị-->
 <select [(ngModel)]="filter">
-  <option *ngFor="let i of simpleItems" [value]="i.id">{{i.value}}</option>
+  <option *ngFor="let i of selectItems" [value]="i.id">{{i.value}}</option>
 </select>
 
 <div *ngFor="let word of arrWords" >
