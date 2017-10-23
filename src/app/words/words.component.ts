@@ -14,10 +14,28 @@ export class WordsComponent implements OnInit {
     { id: 5, en: 'bath', vn: 'tắm', memorized: false },
     { id: 6, en: 'bedroom', vn: 'phòng ngủ', memorized: true }
   ];
+  newEn = "";
+  newVn = "";
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addWord(){
+    // thêm vào đầu mảng
+    this.arrWords.unshift({ 
+      id: this.arrWords.length + 1 ,
+      en: this.newEn,
+      vn: this.newVn,
+      memorized: false
+    });
+    // thêm vào cuối mảng
+    // this.arrWords.push() 
+
+    // sau khi thêm xong thì xoa trang input
+    this.newEn = "";
+    this.newVn = "";
   }
 
 }
