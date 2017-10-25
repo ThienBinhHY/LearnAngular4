@@ -1,0 +1,23 @@
+<h1>Tìm hiểu về Pipe</h1>
+<p>
+  Thông thường 1 công việc có 3 bước chính <br>
+  - lấy dữ liệu <br>
+  - Tranform dữ liệu (từ dữ liệu thô nó sẽ chuyển đổi để ng dùng có thể đọc hiểu đc dữ liệu đó)<br>=> Pipe sẽ can thiệp vào bước này <br>
+  - Show dữ liệu<br>
+</p>
+<h1>Xem cách sử dụng PIPE tại đây :
+  <a href="https://angular.io/api?type=pipe" target="_blank">PIPE</a> 
+</h1>
+<h4>Your birth day : {{birthday | date}}</h4>
+<h4>Your birth day : {{birthday | date:'fullDate'}} su dụng fullDate</h4>
+<h4>Your birth day : {{birthday | date:'medium'}} su dung medium</h4>
+<h4>Your birth day : {{birthday | date:'shortTime'}} su dung short time</h4>
+<h4>Your birth day : {{birthday | date:'mmss'}} su dung mmss</h4>
+<h3>Person : {{ person | json}}</h3>
+<h3>Name Person : {{ person.name }}</h3>
+<h3>Name Person Uppercase: {{ person.name | uppercase }}</h3>
+<h3>Cac pipe co the được gọi liên tiếp nhau : {{ person | json | uppercase}}</h3>
+<h3>Sử dụng AsynPipe : {{address | async}}</h3>
+<h3>Tìm hiểu thêm về tại đây:
+  <a href="http://online.khoapham.vn/nodejs/11-xu-ly-bat-dong-bo-trong-javascript-voi-promise-va-async-%E2%80%93-await.html" target="_blank">Xử lý bất đồng bộ trong Javascript với Promise và Async – Await</a>
+</h3>
