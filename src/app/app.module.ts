@@ -13,6 +13,7 @@ import { ListPersonComponent } from './list-person/list-person.component';
 import { ParentComponent } from './parent.component';
 import { ChildComponent } from './child.component';
 import { SubComponent } from './sub.component';
+import { CardComponent } from './card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SubComponent } from './sub.component';
     ListPersonComponent,
     ParentComponent,
     ChildComponent,
-    SubComponent
+    SubComponent,
+    CardComponent,
 ],
   imports: [
     BrowserModule,
