@@ -10,7 +10,7 @@ import { WeatherService } from './weather.service';
 })
 export class WeatherComponent implements OnInit {
   txtCityName = '';
-  cityName = '';
+  cityName = '';//lấy ra biến city name sau khi nhập xong input city name
   temp = null;
   isLoading = false;
   //khai bao bien weatherService voi kieu la WeatherService de su dung
@@ -25,7 +25,7 @@ export class WeatherComponent implements OnInit {
       this.cityName = this.txtCityName;
       this.temp = temp;
       this.isLoading = false;
-      this.txtCityName = '';
+      this.txtCityName = '';//sau khi hien thị ra nhiet do cua thanh pho thi trả lại input là rỗng
     })
     .catch(err => {
       alert('Cannot find your city!');
@@ -39,6 +39,6 @@ export class WeatherComponent implements OnInit {
     if (this.isLoading) {
       return 'Loading...';
     }
-    return this.cityName === '' ? 'Enter your city name' : (this.cityName + ' is now ' + this.temp);
+    return this.cityName === '' ? 'Please Enter your city name' : (this.cityName + ' is now ' + this.temp);
   }
 }
