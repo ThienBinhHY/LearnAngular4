@@ -1,5 +1,7 @@
+import { Http, Headers } from '@angular/http';
 import { Component } from '@angular/core';
 import { SignInService } from './sign-in.service';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
     selector: 'app-sign-in',
@@ -28,6 +30,8 @@ import { SignInService } from './sign-in.service';
             <br><br>
             <button [disabled]="formSignIn.invalid" class="btn btn-primary">Submit</button>
         </form>
+        <br>
+        <button (click) = "postToExpress()">POST</button>
         <p>{{ txtEmail.errors | json }}</p>
         <p>{{ txtPassword.errors | json }}</p>
         <p>{{ formSignIn.value | json }}</p>
@@ -36,11 +40,29 @@ import { SignInService } from './sign-in.service';
 })
 
 export class SignInComponent {
-    constructor(private signInService: SignInService) { }
+    constructor(private signInService: SignInService, private http: Http) { }
     onSubmit(formSignIn) {
-        this.signInService.sendPost(formSignIn.value)
+        /*this.signInService.sendPost(formSignIn.value)
             .then(result => console.log(result))
             .catch(err => console.log(err));
-        console.log(formSignIn);
+        console.log(formSignIn);*/
+        // gửi cả đoạn dữ liệu lên form
+        const url = "http://localhost:3000/signin";
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const body = JSON.stringify(formSignIn.value);
+        this.http.post(url, body, { headers })
+            .toPromise()
+            .then(res => res.json())
+            .then(resJson => console.log(resJson));
+    }
+
+    postToExpress() {
+        const url = "http://localhost:3000/signin";
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const body = JSON.stringify({ name: "QuyDao939602" });
+        this.http.post(url, body, { headers })
+            .toPromise()
+            .then(res => res.text())
+            .then(resText => console.log(resText));
     }
 }
