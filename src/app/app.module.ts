@@ -17,6 +17,7 @@ import { SubComponent } from './sub.component';
 import { CardComponent } from './card.component';
 import { LearnPipeComponent } from './learn-pipe/learn-pipe.component';
 import { IpComponent } from './ip.component';
+import { SignInComponent } from './sign-in.component';
 
 // pipe
 import { RoundPipe } from './round.pipe';
@@ -42,6 +43,7 @@ import { WeatherComponent } from './weather/weather.component';
     IpComponent,
     RoundPipe,
     WeatherComponent,
+    SignInComponent,
 ],
   imports: [
     BrowserModule,
