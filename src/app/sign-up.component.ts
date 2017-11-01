@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';// sdung FormBuilder để gom nhóm lại cho ngắn gọn 
+import { FormGroup, FormControl, FormBuilder ,Validators} from '@angular/forms';// sdung FormBuilder để gom nhóm lại cho ngắn gọn 
 
 @Component({
     selector: 'app-sign-up',
     template: `
         <form (ngSubmit)="onSubmit();" [formGroup]="formSignUp">
             <input placeholder="Email" formControlName="email">
+            <p *ngIf="formSignUp.get('email').invalid && formSignUp.get('email').touched">Email is required</p>
             <br><br>
             <input type="password" placeholder="Password" formControlName="password">
             <br><br>
@@ -14,7 +15,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';// sdung Fo
                 <label><input type="checkbox" name="Angular" formControlName="angular"> Angular</label>
                 <label><input type="checkbox" name="ReactJS" formControlName="reactJS"> ReactJS</label>
             </div>
-            <button >Submit</button>
+            <button [disabled]="formSignUp.invalid">Submit</button>
         </form>
     `,
 })
@@ -41,7 +42,8 @@ export class SignUpComponent implements OnInit{
         //Thay đoạn trên bằng cách sử dụng FormBuilder để viết ngắn gọn hơn 
         // k nên viết đoạn khởi tạo này trong constructor nên ta se sư dụng ngOninit
         this.formSignUp = this.fb.group({
-            email: 'gvn@gmail.com',// gán gtri mặc định cho  FormControl là input text
+            //email: 'gvn@gmail.com',// gán gtri mặc định cho  FormControl là input text
+            email: ['',Validators.required], // validate trường email k đc để trống
             password: '',
             subjects: this.fb.group({
                 nodeJS: true,// gán gtri mặc định cho  FormControl là checkbox
