@@ -1,6 +1,6 @@
 import { Http, Headers } from '@angular/http';
 import { Component } from '@angular/core';
-import { SignInService } from './sign-in.service';
+import { SignInService } from './sign-in.service';// import SignInService vào để sử dụng 
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -36,24 +36,26 @@ import 'rxjs/add/operator/toPromise';
         <p>{{ txtPassword.errors | json }}</p>
         <p>{{ formSignIn.value | json }}</p>
     `,
-    providers: [SignInService]
+    providers: [SignInService] //thêm  SignInService vào  providers
 })
 
 export class SignInComponent {
-    constructor(private signInService: SignInService, private http: Http) { }
+    constructor(private signInService: SignInService, private http: Http) { } // khai báo thêm biến signInService
     onSubmit(formSignIn) {
-        /*this.signInService.sendPost(formSignIn.value)
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
-        console.log(formSignIn);*/
+        
         // gửi cả đoạn dữ liệu lên form
-        const url = "http://localhost:3000/signin";
+        /*const url = "http://localhost:3000/signin";
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const body = JSON.stringify(formSignIn.value);
         this.http.post(url, body, { headers })
             .toPromise()
             .then(res => res.json())
-            .then(resJson => console.log(resJson));
+            .then(resJson => console.log(resJson));*/
+        // k viết ở đây nữa mà viết service để dùng (sign-in.service.ts)
+        this.signInService.sendPost(formSignIn.value)
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+        console.log(formSignIn);
     }
 
     postToExpress() {
