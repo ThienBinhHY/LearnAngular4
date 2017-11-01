@@ -19,11 +19,15 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';// sdung Fo
     `,
 })
 
-export class SignUpComponent  {
+export class SignUpComponent implements OnInit{
     //ktao FormGroup có thể trong constructor or ngOnInit đều được
     formSignUp: FormGroup;// kbai bien formSignUp kiểu FormGroup
 
     constructor(private fb : FormBuilder) {
+        
+    }
+
+    ngOninit(): void {
         /*this.formSignUp = new FormGroup({
             //email: new FormControl(), // đặt tên là email thì formControlName="email"
             email: new FormControl('gvn@gmail.com'),// gán gtri mặc định cho  FormControl là input text
@@ -37,10 +41,11 @@ export class SignUpComponent  {
         })*/
 
         //Thay đoạn trên bằng cách sử dụng FormBuilder để viết ngắn gọn hơn 
-        this.formSignUp = fb.group({
+        // k nên viết đoạn khởi tạo này trong constructor nên ta se sư dụng ngOninit
+        this.formSignUp = this.fb.group({
             email: 'gvn@gmail.com',// gán gtri mặc định cho  FormControl là input text
             password: '',
-            subjects: fb.group({
+            subjects: this.fb.group({
                 nodeJS: true,// gán gtri mặc định cho  FormControl là checkbox
                 angular: false,
                 reactJS: false,
