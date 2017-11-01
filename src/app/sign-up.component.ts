@@ -23,11 +23,9 @@ export class SignUpComponent implements OnInit{
     //ktao FormGroup có thể trong constructor or ngOnInit đều được
     formSignUp: FormGroup;// kbai bien formSignUp kiểu FormGroup
 
-    constructor(private fb : FormBuilder) {
-        
-    }
+    constructor(private fb: FormBuilder) {}
 
-    ngOninit(): void {
+    ngOnInit(): void {
         /*this.formSignUp = new FormGroup({
             //email: new FormControl(), // đặt tên là email thì formControlName="email"
             email: new FormControl('gvn@gmail.com'),// gán gtri mặc định cho  FormControl là input text
