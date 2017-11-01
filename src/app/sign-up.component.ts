@@ -25,12 +25,13 @@ export class SignUpComponent  {
 
     constructor() {
         this.formSignUp = new FormGroup({
-            email: new FormControl(), // đặt tên là email thì formControlName="email"
+            //email: new FormControl(), // đặt tên là email thì formControlName="email"
+            email: new FormControl('gvn@gmail.com'),// gán gtri mặc định cho  FormControl là input text
             password: new FormControl(),
             subjects: new FormGroup({
-                nodeJS: new FormControl(),
-                angular: new FormControl(),
-                reactJS: new FormControl(),
+                nodeJS: new FormControl(true),// gán gtri mặc định cho  FormControl là checkbox
+                angular: new FormControl(false),
+                reactJS: new FormControl(false),
             }),
             
         })
