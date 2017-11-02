@@ -17,6 +17,7 @@ import { FormGroup, FormControl, FormBuilder ,Validators} from '@angular/forms';
             </div>
             <button [disabled]="formSignUp.invalid">Submit</button>
         </form>
+        <code>{{ formSignUp.controls.email.errors | json }}</code>
     `,
 })
 
@@ -43,7 +44,7 @@ export class SignUpComponent implements OnInit{
         // k nên viết đoạn khởi tạo này trong constructor nên ta se sư dụng ngOninit
         this.formSignUp = this.fb.group({
             //email: 'gvn@gmail.com',// gán gtri mặc định cho  FormControl là input text
-            email: ['',Validators.required], // validate trường email k đc để trống
+            email: ['',[Validators.required,gmailValidator]], // validate trường email k đc để trống
             password: '',
             subjects: this.fb.group({
                 nodeJS: true,// gán gtri mặc định cho  FormControl là checkbox
@@ -57,4 +58,10 @@ export class SignUpComponent implements OnInit{
         console.log(this.formSignUp.value);
     }
 }
-
+// custom validator
+function gmailValidator(formControl: FormControl) {
+    if (formControl.value.includes('@gmail.com')) {
+        return null;// k co lỗi
+    }
+    return { gmail: true }; 
+}
